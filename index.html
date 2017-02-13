@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Is Helper</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    </head>
+
+    <body>
+        <!-- START Tepmlate Placeholder -->
+        <div id="templatePlaceholder"></div>
+        <!-- END Tepmlate Placeholder -->
+
+        <!-- START Template -->
+        <script id="is-template" type="text/x-handlebars-template">
+
+            <div>
+
+                <h3><b> Undfined </b></h3>
+                {{#is banana '&&' test2 '&&' '(' test3 '===' salami }}
+                    SUCCESS {{test1}} '&&' {{test2}} '&&' {{test3}}
+                {{else}}
+                    FAILED {{test1}} '&&' {{test2}} '&&' {{test3}}
+                {{/is}}
+
+
+                <h3><b> OPERATOR  && </b></h3>
+                {{#is test1 '&&' test2 '&&' '(' test3 '===' 'test_3_value' ')'}}
+                    SUCCESS {{test1}} '&&' {{test2}} '&&' {{test3}}
+                {{else}}
+                    FAILED {{test1}} '&&' {{test2}} '&&' {{test3}}
+                {{/is}}
+                
+
+                <h3><b> OPERATOR  TEST - isHelper - () </b></h3>
+                {{#is '(' 1 '==' 1 ')' '&&' '(' 2 '==' 2 ')' }} 
+                    SUCCESS '(' 1 '==' 1 ')' '&&' '(' 2 '==' 2 ')' 
+                {{else}}
+                    FAILED '(' 1 '==' 1 ')' '&&' '(' 2 '==' 2 ')' 
+                {{/is}}
+
+                <h3><b> OPERATOR in</b></h3>
+                {{#is 1 'in' testArray}}
+                    SUCCESS 
+                {{else}}
+                    FAILED 
+                {{/is }}
+
+
+                <h3><b> OPERATOR  > </b></h3>
+                {{#is testGreater '>' testLesser}}
+                    SUCCESS {{testGreater}} > {{testLesser}}
+                {{else}}
+                    FAILED {{testGreater}} > {{testLesser}}
+                {{/is }}
+
+                <h3><b> OPERATOR  not </b></h3>
+                {{#is test1 'not' 'slam'}}
+                    SUCCESS {{test1}} not slam
+                {{else}}
+                    FAILED {{test1}} not slam
+                {{/is }}
+
+                <h3><b> OPERATOR  < </b></h3>
+                {{#is testLesser '<' testGreater}}
+                    SUCCESS {{testLesser}} < {{testGreater}}
+                {{else}}
+                    FAILED {{testLesser}} < {{testGreater}}
+                {{/is }}
+
+                <h3><b> OPERATOR  >= </b></h3>
+                {{#is testGreaterEqual '>=' testGreater}}
+                    SUCCESS {{testGreaterEqual}} >= {{testGreater}}
+                {{else}}
+                    FAILED {{testGreaterEqual}} >= {{testGreater}}
+                {{/is }}
+
+                <h3><b> OPERATOR  <= </b></h3>
+                {{#is  testArray.[0] '<=' testArray.[1]}}
+                    SUCCESS {{testArray.[0]}} '<=' {{testArray.[1]}}
+                {{else}}
+                    FAILED {{testArray.[0]}} '<=' {{testArray.[1]}}
+                {{/is}}
+
+                <h3><b> OPERATOR  === </b></h3>
+                {{#is testArray.[0] '===' testLesser }}
+                    SUCCESS {{testArray.[0]}} '===' {{testLesser}} 
+                {{else}}
+                    FAILED  {{testArray.[0]}} '===' {{testLesser}} 
+                {{/is }}
+
+                <h3><b> OPERATOR  !== </b></h3>
+                {{#is 1 '!==' 2}}
+                    SUCCESS 1 '!==' 2
+                {{else}}
+                    FAILED 1 '!==' 2
+                {{/is }}
+
+                <h1>Everything below here works!!</h1>
+
+                <h3><b> OPERATOR  || </b></h3>
+                {{#is test1 '||' banana '||' banana}}
+                    SUCCESS {{test1}} '||' {{test2}} '||' banana
+                {{else}}
+                    FAILED  {{test1}} '||' {{test2}} '||' banana
+                {{/is }}
+                
+            </div> 
+
+
+        </script>
+        <!-- END Template -->
+
+        <script src="isHelperOperator.js"></script>
+        <script src="orHelper.js"></script>
+        <script src="infiniteIsHelper.js"></script>
+        <script src="logHelper.js"></script>
+
+        <script src="isHelperModel.js"></script>
+
+    </body>
+
+</html>
